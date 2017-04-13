@@ -1,3 +1,4 @@
 export interface Houses{
-    name:string
+    name:string,
+    member:string
 }
