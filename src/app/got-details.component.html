@@ -1,0 +1,23 @@
+<section *ngIf="house">
+    <span style="display:inline;">{{ house.member }} from the House</span>
+    <h2 style="display:inline;"> {{ house.name }}</h2>
+</section>
+<section>
+    <form (ngSubmit)="saveHouseDetails()" #houseForm="ngForm">
+        <div>
+            <label for="name">Name: </label>
+            <input type="text" required name="name" [(ngModel)]="house.name" #name="ngModel">
+            <div [hidden]="name.valid || name.pristine" class="error">
+                Name is required your grace!
+            </div>
+        </div>
+        <div>
+            <label for="member">Belongings: </label>
+            <input type="text" name="member" [(ngModel)]="house.member">
+        </div>
+        <div>
+            <button type="submit" [disabled]="!houseForm.form.valid">Save</button>
+        </div>
+    </form>
+</section>
+<button (click)="backToHouseList()">Back To House List</button>

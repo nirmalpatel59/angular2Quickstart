@@ -5,8 +5,7 @@ import { HouseService } from "./house.service";
     selector:"got-house",
     //template: `<ul><li *ngFor="let house in houses">{{house}}</li></ul>`,
     // template: `<ul><li *ngFor="let house of houses">{{house}}</li></ul>`,
-    template:`<ul><li *ngFor="let house of houses" ><a href="#" (click)="selectHouse(house)">{{house.name}}</a></li></ul>
-    <house-details [house]="selectedHouse"></house-details>
+    template:`<ul><li *ngFor="let house of houses"><a href="#" [routerLink]="['/houses', house.id]">{{house.name}}</a></li></ul>
     `,
 })
 export class GotComponent implements OnInit{

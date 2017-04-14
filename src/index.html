@@ -17,6 +17,11 @@
     <script>
       System.import('main.js').catch(function(err){ console.error(err); });
     </script>
+    <style>
+      .error{ padding: 12px; background-color: rgba(255, 0, 0, 0.2); color: red; }
+      .ng-valid[required] { border-left: 5px solid #42A948; /* green */ }
+      .ng-invalid { border-left: 5px solid #a94442; /* red*/ }
+    </style>
   </head>
 
   <body>

@@ -1,14 +1,33 @@
-import { Component, Input } from "@angular/core";
-import { Houses } from "./houses"
+import { Component, OnInit, OnDestroy } from "@angular/core";
+import { ActivatedRoute, Router } from '@angular/router';
+import { Houses } from "./houses";
+import { HouseService } from "./house.service";
 
 @Component ({
     selector:"house-details",
-    template: `
-    <section *ngIf="house">
-        <span style="display:inline;">{{ house.member }} from the House</span><h2 style="display:inline;"> {{ house.name }}</h2>
-    </section>
-    `
+    templateUrl:"app/got-details.component.html"
 })
-export class GotDetailsComponent {
-    @Input() house: Houses
+
+export class GotDetailsComponent implements OnInit, OnDestroy {
+    house : Houses;
+    sub:any;
+    constructor(private _houseService: HouseService, private _route: ActivatedRoute, private _router: Router) {
+    }
+    ngOnInit() {
+        this.sub = this._route.params.subscribe(params => {
+            let id = Number.parseInt(params['id']);
+            this.house = this._houseService.get(id);
+        });
+    }
+    ngOnDestroy() {
+        this.sub.unsubscribe();
+    }
+    backToHouseList(){
+        let link = ["/houses"];
+        this._router.navigate(link);
+    }
+    saveHouseDetails() {
+        this._houseService.save(this.house);
+    }
+    // @Input() house: Houses
 }
