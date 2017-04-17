@@ -1,6 +1,9 @@
 <section *ngIf="house">
     <span style="display:inline;">{{ house.member }} from the House</span>
     <h2 style="display:inline;"> {{ house.name }}</h2>
+    <br>
+    <h4 style="display:inline;">Weapon Type ::  {{ house.weapon_type }}</h4>
+
 </section>
 <section>
     <form (ngSubmit)="saveHouseDetails()" #houseForm="ngForm">
@@ -13,8 +16,21 @@
         </div>
         <div>
             <label for="member">Belongings: </label>
-            <input type="text" name="member" [(ngModel)]="house.member">
+            <input type="text" name="member" [(ngModel)]="house.member" required #member="ngModel">
+            <div [hidden]="member.valid || member.pristine" class="error">
+                Atleast one representive from the house is required.
+            </div>
         </div>
+        <div>
+        <label for="weapon">Weapon: </label>
+        <select name="weapon" [(ngModel)]="house.weapon_type" required #weapon="ngModel">
+            <option *ngFor="let weapon of weapons_type" [value]="weapon">{{weapon}}</option>
+        </select>
+        <div [hidden]="weapon.valid || weapon.pristine" class="error">
+            Atleast one representive from the house is required.
+        </div>
+        </div>
+
         <div>
             <button type="submit" [disabled]="!houseForm.form.valid">Save</button>
         </div>

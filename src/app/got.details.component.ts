@@ -11,6 +11,7 @@ import { HouseService } from "./house.service";
 export class GotDetailsComponent implements OnInit, OnDestroy {
     house : Houses;
     sub:any;
+    weapons_type: String[] = ["The Needle","The Little Axe","The Fire","The Reveng Knife","The Beast Hound","Dracareys","The Hunter Sword"];
     constructor(private _houseService: HouseService, private _route: ActivatedRoute, private _router: Router) {
     }
     ngOnInit() {

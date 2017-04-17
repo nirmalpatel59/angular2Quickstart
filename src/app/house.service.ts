@@ -6,37 +6,44 @@ const HOUSES : Houses[]= [
   {
     "id": 1,
     "name": 'Stark',
-    "member": "Arya Stark"
+    "member": "Arya Stark",
+    "weapon_type": "The Needle"
   },
   {
     "id": 2,
     "name": 'Lannister',
     "member": "Tyrion Lannister",
+    "weapon_type":"The Little Axe",
   },
   {
     "id": 3,
     "name": 'Baratheon',
     "member": "Renly Baratheon",
+    "weapon_type":"The Fire",
   },
   {
     "id": 4,
     "name": 'Tully',
     "member": "Cathlin Tully",
+    "weapon_type":"The Reveng Knife",
   },
   {
     "id": 5,
     "name": 'Bolton',
     "member": "Rose Bolton",
+    "weapon_type":"The Beast Hound",
   },
   {
     "id": 6,
     "name": 'Targaryen',
     "member": "Denerys Targaryen",
+    "weapon_type":"Dracareys",
   },
   {
     "id": 7,
     "name": 'Tyrell',
-    "member": "Martha Tyrell"
+    "member": "Martha Tyrell",
+    "weapon_type":"The Hunter Sword"
   }
 ];
 @Injectable()
